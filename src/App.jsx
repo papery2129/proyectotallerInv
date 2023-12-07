@@ -1,25 +1,26 @@
-import formulario from "./formulario"
-import { Home } from "./home"
-import { useState } from "react"
-import "./App.css"
+import { Formulario } from './components/Formulario'
+import { Home } from './components/Home'
+import { useState } from 'react'
+import './App.css'
 
 function App() {
 
   const [user, setUser] = useState([])
-
+ 
 
   return (
     <>
-      <div className="App">
+      <div className='App'>
         {
-          user.length > 0
-            ? <formulario setUser={setUser}></formulario>
-            :<Home user={user} setUser={setUser}></Home>
+          !user.length > 0
+          ? <Formulario setUser={setUser} />
+          : <Home  user={user} setUser={setUser} />
         }
-        
+
       </div>
+
     </>
   )
 }
 
-export default App;
+export default App
